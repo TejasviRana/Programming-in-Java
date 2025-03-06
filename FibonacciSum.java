@@ -1,16 +1,34 @@
+import java.util.Scanner;
+
 public class FibonacciSum {
-    /**
-     * Computes the sum of the first n Fibonacci numbers and prints it.
-     * The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding numbers, starting from 0 and 1.
-     * @param args command line arguments, not used
-     */
-    public static void main(String[] args) {
-        int n = 5, a = 0, b = 1, sum = 1; // 0 1 1 2 3
+    // Method to calculate sum of Fibonacci series up to n terms
+    public static int fibonacciSum(int n) {
+        if (n <= 0) return 0;
+        if (n == 1) return 1;
+        
+        int a = 0, b = 1, sum = 1;
         for (int i = 2; i < n; i++) {
             int next = a + b;
             sum += next;
-            a = b; b = next;
+            a = b;
+            b = next;
         }
-        System.out.println("Sum: " + sum);
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Taking input
+        System.out.print("Enter number of terms: ");
+        int num = scanner.nextInt();
+        
+        // Calculating sum of Fibonacci series
+        int result = fibonacciSum(num);
+        
+        // Displaying result
+        System.out.println("Sum of first " + num + " Fibonacci numbers is: " + result);
+        
+        scanner.close();
     }
 }
