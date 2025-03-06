@@ -1,16 +1,27 @@
-package Part_3;
-
 import java.util.*;
+
 public class RemoveDuplicates {
-    /**
-     * Removes duplicates from an array and prints the result
-     * @param args the command line arguments
-     */
+    public static int[] removeDuplicates(int[] arr) {
+        Set<Integer> set = new LinkedHashSet<>(); // Maintain insertion order
+        for (int num : arr) {
+            set.add(num);
+        }
+        
+        // Convert set back to array
+        int[] uniqueArray = new int[set.size()];
+        int index = 0;
+        for (int num : set) {
+            uniqueArray[index++] = num;
+        }
+        
+        return uniqueArray;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1, 2, 2, 3, 3, 3, 4, 5};
-        Set<Integer> set = new LinkedHashSet<>();
-        for (int x : arr) set.add(x);
-        System.out.println(set);
+        int[] arr = {4, 2, 7, 2, 4, 8, 9, 7};
+        int[] uniqueArr = removeDuplicates(arr);
+        
+        System.out.println("Array after removing duplicates: " + Arrays.toString(uniqueArr));
     }
 }
 
