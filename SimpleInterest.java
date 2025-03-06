@@ -1,10 +1,22 @@
-public class SimpleInterest {
-    /**
-     * Calculates and prints the simple interest given principal, rate and time.
-     * @param args the command line arguments
-     */
+import java.util.Scanner;
+
+public class SimpleInterestCalculator {
     public static void main(String[] args) {
-        double p = 1000, r = 5, t = 2; // p = principal, r = rate, t = time
-        System.out.println("SI: " + (p * r * t / 100)); // SI = PRT / 100
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter Principal amount: ");
+        double principal = scanner.nextDouble();
+        
+        System.out.print("Enter Rate of Interest (in % per annum): ");
+        double rate = scanner.nextDouble();
+        
+        System.out.print("Enter Time (in years): ");
+        double time = scanner.nextDouble();
+        
+        double simpleInterest = (principal * rate * time) / 100;
+        
+        System.out.println("Simple Interest: " + simpleInterest);
+        
+        scanner.close();
     }
 }
